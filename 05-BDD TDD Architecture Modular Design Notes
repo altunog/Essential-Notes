@@ -1,0 +1,62 @@
+**1. What is a good architecture?**
+- That solves the problem in hand.
+- They need to solve in an elegant form.
+
+---
+
+**2. Which architecture to go with?**
+- It depends on the requirements.
+- Bad requirements may lead to a bad architecture.
+
+---
+
+**3. Would good requirements lead to good architecture?**
+- Well, it increases the chances.
+- If we have well defined requirements, its easier to design our system.
+- Bad software design starts with bad assumptions (and bad communication).
+
+---
+
+**4. Goal of the good design**
+- Solving the current problems while welcoming future changes.
+- We don't want to abstract too much to solve a future problem that might never happen,
+- or we don't want to make our software rigid enough that changing things is too hard.
+
+---
+
+**5. Who's to blame?**
+- No one's to blame.
+- It's a communication problem that can be solved.
+- Everyone's responsbility.
+> In a functional team, everyone holds each other accountable for good results.
+
+---
+
+**6. Example of bad requirements**
+
+### Story
+As a user <br>
+I want the app to load the feed <br>
+So I can see the feed <br>
+
+### Acceptance
+Given a user <br>
+When the user opens the feed <br>
+Then the feed is displayed <br>
+
+- If we get a story like this, go back to the analyst and start asking questions: _"How can we improve this?"_
+- This is the value of doing BDD.
+> BDD is a nice way of gathering relevant information via conversations. <br>
+> BDD can be more effective when we focus on meaningful discussions instead of tools (or even testing).
+- By asking questions, developers can improve requirements and, as a side effect, build trust.
+- As developers, it's our job to help the business understand the technical challanges.
+
+---
+
+**7. Use Cases**
+- Introduced by Ivar Jacobson
+- More technical
+- UI or system agnostic
+
+---
+> The goal is to crush the assumptions.
