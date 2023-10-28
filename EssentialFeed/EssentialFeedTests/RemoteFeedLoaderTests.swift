@@ -60,7 +60,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
             
             XCTAssertEqual(capturedErrors, [.invalidData])
         }
-        
     }
     
     // MARK: - Helpers
