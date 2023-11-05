@@ -17,7 +17,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
 
     func test_load_requestsDataFromURL() {
-        let url = URL(string: "https://a-given-url.com")!
+        let url = URL(string: "http://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -26,7 +26,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_loadTwice_requestsDataFromURLTwice() {
-        let url = URL(string: "https://a-given-url.com")!
+        let url = URL(string: "http://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -80,13 +80,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         let item1 = makeItem(
             id: UUID(),
-            imageURL: URL(string: "a-url.com")!)
+            imageURL: URL(string: "http://a-url.com")!)
 
         let item2 = makeItem(
             id: UUID(),
             description: "a description",
             location: "a location",
-            imageURL: URL(string: "another-url.com")!)
+            imageURL: URL(string: "http://another-url.com")!)
          
         let items = [item1.model, item2.model]
         
@@ -97,7 +97,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let url = URL(string: "any-url.com")!
+        let url = URL(string: "http://any-url.com")!
         let client = HTTPClientSpy()
         var sut: RemoteFeedLoader? = RemoteFeedLoader(url: url, client: client)
         
@@ -112,7 +112,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = URL(string: "http://a-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
         trackForMemoryLeak(sut, file: file, line: line)
