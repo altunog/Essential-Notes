@@ -42,7 +42,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     func test_getFromURL_performsGETRequestWithURL() {
         let url = anyURL()
-        let exp = expectation(description: "Wait for completion")
+        let exp = XCTestExpectation(description: "Wait for completion")
         
         URLProtocolStub.observeRequest { request in
             XCTAssertEqual(request.url, url)
@@ -75,7 +75,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: anyNSError()))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: anyHTTPURLResponse(), error: anyNSError()))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: nil))
-        
     }
 
     // MARK: Helpers
@@ -89,7 +88,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     private func resultErrorFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> Error? {
         URLProtocolStub.stub(data: data, response: response, error: error)
         let sut = makeSUT(file: file, line: line)
-        let exp = expectation(description: "Wait for completion")
+        let exp = XCTestExpectation(description: "Wait for completion")
         
         var receivedError: Error?
         sut.get(from: anyURL()) { result in
