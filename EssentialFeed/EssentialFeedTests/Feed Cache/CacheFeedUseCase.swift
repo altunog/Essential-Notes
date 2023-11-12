@@ -28,7 +28,7 @@ class FeedStore {
     }
 }
 
-final class CacheFeedUseCase: XCTestCase {
+final class CacheFeedUseCaseTests: XCTestCase {
 
     func test_init_doesNotDeleteCacheUponCreation() {
         let store = FeedStore()
