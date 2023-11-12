@@ -22,7 +22,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     func test_getFromURL_performsGETRequestWithURL() {
         let url = anyURL()
-        let exp = XCTestExpectation(description: "Wait for completion")
+        let exp = expectation(description: "Wait for completion")
         
         URLProtocolStub.observeRequest { request in
             XCTAssertEqual(request.url, url)
@@ -114,7 +114,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     private func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> HTTPClientResult? {
         URLProtocolStub.stub(data: data, response: response, error: error)
         let sut = makeSUT(file: file, line: line)
-        let exp = XCTestExpectation(description: "Wait for completion")
+        let exp = expectation(description: "Wait for completion")
         
         var receivedResult: HTTPClientResult?
         sut.get(from: anyURL()) { result in
