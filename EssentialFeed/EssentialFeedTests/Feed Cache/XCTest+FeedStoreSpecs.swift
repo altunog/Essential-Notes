@@ -21,7 +21,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        insert((feed: feed, timestamp: timestamp), to: sut, file: file, line: line)
+        insert((feed: feed, timestamp: timestamp), to: sut)
         
         expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
     }
@@ -30,31 +30,31 @@ extension FeedStoreSpecs where Self: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        insert((feed: feed, timestamp: timestamp), to: sut, file: file, line: line)
+        insert((feed: feed, timestamp: timestamp), to: sut)
         
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp), file: file, line: line)
     }
     
     func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-        let insertionError = insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        let insertionError = insert((uniqueImageFeed().local, Date()), to: sut)
         
         XCTAssertNil(insertionError, "Expected to insert cache successfully", file: file, line: line)
     }
     
     func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-        insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        insert((uniqueImageFeed().local, Date()), to: sut)
         
-        let insertionError = insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        let insertionError = insert((uniqueImageFeed().local, Date()), to: sut)
         
         XCTAssertNil(insertionError, "Expected to override cache successfully", file: file, line: line)
     }
     
     func assertThatInsertOverridesPreviouslyInsertedCacheValues(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-        insert((uniqueImageFeed().local, Date()), to: sut, file: file, line: line)
+        insert((uniqueImageFeed().local, Date()), to: sut)
         
         let latestFeed = uniqueImageFeed().local
         let latestTimestamp = Date()
-        insert((latestFeed, latestTimestamp), to: sut, file: file, line: line)
+        insert((latestFeed, latestTimestamp), to: sut)
         
         expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp), file: file, line: line)
     }
@@ -116,7 +116,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 
 extension FeedStoreSpecs where Self: XCTestCase {
     @discardableResult
-    func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) -> Error? {
+    func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache insertion")
         var insertionError: Error?
         sut.insert(cache.feed, timestamp: cache.timestamp) { receivedInsertionError in
