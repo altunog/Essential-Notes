@@ -221,10 +221,18 @@
 		6A73187D2B33026500C50435 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				6A73187E2B3302EF00C50435 /* CoreData */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		6A73187E2B3302EF00C50435 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
 				6A7318702B321F7900C50435 /* CoreDataFeedStore.swift */,
 				6A7318722B32235A00C50435 /* FeedStore.xcdatamodeld */,
 			);
-			path = Infrastructure;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		6A8321E22B029D4600E5E3D3 /* Feed Cache */ = {
