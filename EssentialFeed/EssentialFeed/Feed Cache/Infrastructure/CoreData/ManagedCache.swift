@@ -15,7 +15,7 @@ internal class ManagedCache: NSManagedObject {
 
 extension ManagedCache {
     internal static func find(in context: NSManagedObjectContext) throws -> ManagedCache? {
-        let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
+        let request = NSFetchRequest<ManagedCache>(entityName: entity().name!)
         request.returnsObjectsAsFaults = false
         return try context.fetch(request).first
     }
@@ -26,6 +26,6 @@ extension ManagedCache {
     }
     
     internal var localFeed: [LocalFeedImage] {
-        feed.compactMap { ($0 as? ManagedFeedImage)?.local }
+        return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
     }
 }
