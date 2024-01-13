@@ -29,7 +29,7 @@ public final class FeedUIComposer {
     }
 }
 
-public final class FeedViewAdapter: FeedView {
+private final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?
     private let imageLoader: FeedImageDataLoader
     
