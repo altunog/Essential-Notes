@@ -125,6 +125,7 @@
                         <connections>
                             <outlet property="dataSource" destination="NiO-FT-c3u" id="qrb-Ma-3MU"/>
                             <outlet property="delegate" destination="NiO-FT-c3u" id="mBK-0d-ttu"/>
+                            <outlet property="prefetchDataSource" destination="NiO-FT-c3u" id="ddo-UD-l81"/>
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="K7I-2m-rIN">
