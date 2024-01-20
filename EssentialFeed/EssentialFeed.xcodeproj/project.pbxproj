@@ -267,12 +267,10 @@
 		6A09F14E2B45EB3A00DC7C99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6A7019EC2B5BF3FA0067C399 /* Helpers */,
 				6A2409F52B418A1800CA36B8 /* FeedImageCell.swift */,
-				6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */,
-				6A5CFCEA2B541283004FC3D7 /* UITableView+Dequeueing.swift */,
 				6AC6005E2B53FB090029FF6D /* Feed.storyboard */,
 				6AC600602B53FC010029FF6D /* Feed.xcassets */,
-				6A5CFCEC2B5413C6004FC3D7 /* UIImageView+Animations.swift */,
 				6A7019EA2B5BE4DF0067C399 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -468,6 +466,16 @@
 				6A8321E72B08D6DD00E5E3D3 /* RemoteFeedItem.swift */,
 			);
 			path = "Feed API";
+			sourceTree = "<group>";
+		};
+		6A7019EC2B5BF3FA0067C399 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6A5CFCEC2B5413C6004FC3D7 /* UIImageView+Animations.swift */,
+				6A5CFCEA2B541283004FC3D7 /* UITableView+Dequeueing.swift */,
+				6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6A73187D2B33026500C50435 /* Infrastructure */ = {
