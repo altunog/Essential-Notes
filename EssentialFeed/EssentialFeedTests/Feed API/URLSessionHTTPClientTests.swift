@@ -10,14 +10,9 @@ import EssentialFeed
 
 final class URLSessionHTTPClientTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        URLProtocolStub.startInterceptingRequest()
-    }
-    
     override func tearDown() {
         super.tearDown()
-        URLProtocolStub.stopInterceptingRequest()
+        URLProtocolStub.removeStub()
     }
     
     func test_getFromURL_performsGETRequestWithURL() {
@@ -45,7 +40,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         let requestError = anyNSError()
         
         let receivedError = resultErrorFor((data: nil, response: nil, error: requestError))
-
+        
         XCTAssertEqual((receivedError as? NSError)?.domain, requestError.domain)
         XCTAssertEqual((receivedError as? NSError)?.code, requestError.code)
     }
@@ -77,17 +72,21 @@ final class URLSessionHTTPClientTests: XCTestCase {
         let response = anyHTTPURLResponse()
         
         let receivedValues = resultValuesFor((data: nil, response: response, error: nil))
-
+        
         let emptyData = Data()
         XCTAssertEqual(receivedValues?.data, emptyData)
         XCTAssertEqual(receivedValues?.response.url, response.url)
         XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
     }
-
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
-        let sut = URLSessionHTTPClient()
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: configuration)
+        
+        let sut = URLSessionHTTPClient(session: session)
         trackForMemoryLeaks(sut)
         return sut
     }
@@ -168,12 +167,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
             stub = Stub(data: nil, response: nil, error: nil, requestObserver: observer)
         }
         
-        static func startInterceptingRequest() {
-            URLProtocol.registerClass(URLProtocolStub.self)
-        }
-        
-        static func stopInterceptingRequest() {
-            URLProtocol.unregisterClass(URLProtocolStub.self)
+        static func removeStub() {
             stub = nil
         }
         
