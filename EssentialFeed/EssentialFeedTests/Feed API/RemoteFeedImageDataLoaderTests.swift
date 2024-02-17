@@ -156,7 +156,7 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         task.cancel()
         
         client.complete(withStatusCode: 404, data: anyData())
-        client.complete(withStatusCode: 200, data: anyData())
+        client.complete(withStatusCode: 200, data: nonEmptyData)
         client.complete(with: anyNSError())
         
         XCTAssertTrue(received.isEmpty, "Expected no received results after cancelling task")
