@@ -9,7 +9,6 @@ import CoreData
 
 public final class CoreDataFeedStore {
     private let container: NSPersistentContainer
-    
     private let context: NSManagedObjectContext
     
     public init(storeURL: URL) throws {
@@ -21,5 +20,16 @@ public final class CoreDataFeedStore {
     func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
         let context = self.context
         context.perform { action(context) }
+    }
+    
+    private func cleanUpReferencesToPersistentStores() {
+        context.performAndWait {
+            let coordinator = self.container.persistentStoreCoordinator
+            try? coordinator.persistentStores.forEach(coordinator.remove)
+        }
+    }
+    
+    deinit {
+        cleanUpReferencesToPersistentStores()
     }
 }
