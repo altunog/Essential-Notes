@@ -61,7 +61,7 @@
     },
     {
       "target" : {
-        "containerPath" : "container:EssentialApp.xcodeproj",
+        "containerPath" : "container:..\/EssentialApp\/EssentialApp.xcodeproj",
         "identifier" : "6A13FF172B9E2267007F3BD0",
         "name" : "EssentialAppTests"
       }
