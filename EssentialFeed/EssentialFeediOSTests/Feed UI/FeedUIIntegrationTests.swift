@@ -328,7 +328,7 @@ final class FeedUIIntegrationTests: XCTestCase {
             loader.completeFeedLoading(at: 0)
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 5.0)
     }
     
     func test_loadImageDataCompletion_dispatchesFromBackgroundToMainThread() {
@@ -343,7 +343,7 @@ final class FeedUIIntegrationTests: XCTestCase {
             loader.completeImageLoading(with: self.anyImageData(), at: 0)
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 60.0)
+        wait(for: [exp], timeout: 5.0)
     }
     
     // MARK: Helpers
