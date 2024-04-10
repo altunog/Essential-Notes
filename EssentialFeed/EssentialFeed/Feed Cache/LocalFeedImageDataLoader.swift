@@ -68,7 +68,8 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
             task.complete(with: result
                 .mapError { _ in LoadError.failed }
                 .flatMap { data in
-                    data.map { .success($0) } ?? .failure(LoadError.notFound)
+                    guard let data, data.count > 0 else { return .failure(LoadError.notFound) }
+                    return .success(data)
                 })
         }
         return task

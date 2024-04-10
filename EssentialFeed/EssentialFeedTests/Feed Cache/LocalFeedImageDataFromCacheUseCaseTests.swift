@@ -42,6 +42,15 @@ final class LocalFeedImageDataFromCacheUseCaseTests: XCTestCase {
         })
     }
     
+    func test_loadImageDataFromURL_deliversNotFoundErrorOnEmptyData() {
+        let (sut, store) = makeSUT()
+        let emptyData = Data()
+        
+        expect(sut, toCompleteWith: notFound(), when: {
+            store.completeRetrieval(with: emptyData)
+        })
+    }
+    
     func test_loadImageDataFromURL_deliversStoredDataOnFoundData() {
         let (sut, store) = makeSUT()
         let foundData = anyData()
