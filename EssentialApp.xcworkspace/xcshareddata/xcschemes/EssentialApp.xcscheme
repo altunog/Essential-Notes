@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6A13FF012B9E2264007F3BD0"
                BuildableName = "EssentialApp.app"
                BlueprintName = "EssentialApp"
-               ReferencedContainer = "container:EssentialApp.xcodeproj">
+               ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,13 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:EssentialApp.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -42,7 +37,7 @@
                BlueprintIdentifier = "6A13FF172B9E2267007F3BD0"
                BuildableName = "EssentialAppTests.xctest"
                BlueprintName = "EssentialAppTests"
-               ReferencedContainer = "container:EssentialApp.xcodeproj">
+               ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -53,7 +48,18 @@
                BlueprintIdentifier = "6A13FF212B9E2267007F3BD0"
                BuildableName = "EssentialAppUITests.xctest"
                BlueprintName = "EssentialAppUITests"
-               ReferencedContainer = "container:EssentialApp.xcodeproj">
+               ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A407D962BC95A6B00299F5C"
+               BuildableName = "EssentialAppUIAcceptanceTests.xctest"
+               BlueprintName = "EssentialAppUIAcceptanceTests"
+               ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -75,7 +81,7 @@
             BlueprintIdentifier = "6A13FF012B9E2264007F3BD0"
             BuildableName = "EssentialApp.app"
             BlueprintName = "EssentialApp"
-            ReferencedContainer = "container:EssentialApp.xcodeproj">
+            ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -92,7 +98,7 @@
             BlueprintIdentifier = "6A13FF012B9E2264007F3BD0"
             BuildableName = "EssentialApp.app"
             BlueprintName = "EssentialApp"
-            ReferencedContainer = "container:EssentialApp.xcodeproj">
+            ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
