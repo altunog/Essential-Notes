@@ -10,43 +10,6 @@ import EssentialApp
 import EssentialFeed
 import EssentialFeediOS
 
-private class FakeRefreshControl: UIRefreshControl {
-    private var _isRefreshing = false
-    
-    override var isRefreshing: Bool { _isRefreshing }
-    
-    override func beginRefreshing() {
-        _isRefreshing = true
-    }
-    
-    override func endRefreshing() {
-        _isRefreshing = false
-    }
-}
-
-private extension FeedViewController {
-    func simulateAppearance() {
-        if !isViewLoaded {
-            loadViewIfNeeded()
-            replaceRefreshControlWithFakeForiOS17Support()
-        }
-        beginAppearanceTransition(true, animated: false)
-        endAppearanceTransition()
-    }
-    
-    func replaceRefreshControlWithFakeForiOS17Support() {
-        let fake = FakeRefreshControl()
-        
-        refreshControl?.allTargets.forEach { target in
-            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
-                fake.addTarget(target, action: Selector(action), for: .valueChanged)
-            }
-        }
-        
-        refreshControl = fake
-    }
-}
-
 final class FeedUIIntegrationTests: XCTestCase {
     
     func test_feedView_hasTitle() {
@@ -325,11 +288,11 @@ final class FeedUIIntegrationTests: XCTestCase {
         sut.simulateAppearance()
         
         let exp = expectation(description: "Wait for background queue")
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global().async {
             loader.completeFeedLoading(at: 0)
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 20.0)
+        wait(for: [exp], timeout: 1.0)
     }
     
     func test_loadImageDataCompletion_dispatchesFromBackgroundToMainThread() {
@@ -344,7 +307,7 @@ final class FeedUIIntegrationTests: XCTestCase {
             loader.completeImageLoading(with: self.anyImageData(), at: 0)
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 20.0)
+        wait(for: [exp], timeout: 1.0)
     }
     
     // MARK: Helpers
