@@ -194,14 +194,11 @@
 				6A13FF052B9E2264007F3BD0 /* AppDelegate.swift */,
 				6A13FF072B9E2264007F3BD0 /* SceneDelegate.swift */,
 				6A1C51AF2BD53D1900AC635F /* FeedUIComposer.swift */,
-				6A1C51AE2BD53D1800AC635F /* MainQueueDispatchDecorator.swift */,
 				6A1C51B32BD53D1900AC635F /* WeakRefVirtualProxy.swift */,
 				6A1C51B02BD53D1900AC635F /* FeedImageDataLoaderPresentationAdapter.swift */,
 				6A1C51B12BD53D1900AC635F /* FeedLoaderPresentationAdapter.swift */,
 				6A1C51B22BD53D1900AC635F /* FeedViewAdapter.swift */,
 				6A13FF092B9E2264007F3BD0 /* ViewController.swift */,
-				6A13FF8F2BAECF4E007F3BD0 /* FeedImageDataLoaderWithFallbackComposite.swift */,
-				6A9C7BC82BB0323E0056F711 /* FeedImageDataLoaderCacheDecorator.swift */,
 				6A13FF0E2B9E2267007F3BD0 /* Assets.xcassets */,
 				6A13FF102B9E2267007F3BD0 /* LaunchScreen.storyboard */,
 				6A13FF132B9E2267007F3BD0 /* Info.plist */,
@@ -216,8 +213,6 @@
 				6A968AF32BF12A1C0033B173 /* UnusedComponentsTests */,
 				6A1C51AC2BD532B900AC635F /* SceneDelegateTests.swift */,
 				6A1C51CC2BD7B6B000AC635F /* FeedUIIntegrationTests.swift */,
-				6A13FF8D2BAEBEF6007F3BD0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
-				6A9C7BC02BB024670056F711 /* FeedImageDataLoaderCacheDecoratorTests.swift */,
 				6A1C51CE2BD7B93500AC635F /* FeedAcceptanceTests.swift */,
 			);
 			path = EssentialAppTests;
@@ -261,6 +256,9 @@
 		6A968AF22BF129AA0033B173 /* UnusedComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6A1C51AE2BD53D1800AC635F /* MainQueueDispatchDecorator.swift */,
+				6A9C7BC82BB0323E0056F711 /* FeedImageDataLoaderCacheDecorator.swift */,
+				6A13FF8F2BAECF4E007F3BD0 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				6A13FF8B2BA7232C007F3BD0 /* FeedLoaderWithFallbackComposite.swift */,
 				6A9C7BBE2BAF7F2D0056F711 /* FeedLoaderCacheDecorator.swift */,
 			);
@@ -270,6 +268,8 @@
 		6A968AF32BF12A1C0033B173 /* UnusedComponentsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6A9C7BC02BB024670056F711 /* FeedImageDataLoaderCacheDecoratorTests.swift */,
+				6A13FF8D2BAEBEF6007F3BD0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 				6A13FF892BA71104007F3BD0 /* FeedLoaderWithFallbackCompositeTests.swift */,
 				6A9C7BB62BAF0E4A0056F711 /* FeedLoaderCacheDecoratorTests.swift */,
 			);
