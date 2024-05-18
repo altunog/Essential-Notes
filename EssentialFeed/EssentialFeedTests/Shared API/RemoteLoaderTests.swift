@@ -50,7 +50,6 @@ final class RemoteLoaderTests: XCTestCase {
         })
         
         expect(sut, toCompleteWith: failure(.invalidData), when: {
-            let invalidJSON = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: anyData())
         })
     }
