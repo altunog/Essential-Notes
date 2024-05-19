@@ -34,7 +34,7 @@
 //    
 //    // MARK: - Helpers
 //    
-//    private func makeSUT(primaryResult: FeedLoader.Result, fallbackResult: FeedLoader.Result, file: StaticString = #filePath, line: UInt = #line) -> FeedLoader {
+//    private func makeSUT(primaryResult: Swift.Result<[FeedImage], Error>, fallbackResult: Swift.Result<[FeedImage], Error>, file: StaticString = #filePath, line: UInt = #line) -> FeedLoader {
 //        let primaryLoader = FeedLoaderStub(result: primaryResult)
 //        let fallbackLoader = FeedLoaderStub(result: fallbackResult)
 //        let sut = FeedLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)

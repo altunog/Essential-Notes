@@ -16,7 +16,7 @@
 //        self.fallback = fallback
 //    }
 //    
-//    public func load(completion: @escaping (FeedLoader.Result) -> Void) {
+//    public func load(completion: @escaping (Swift.Result<[FeedImage], Error>) -> Void) {
 //        primary.load { [weak self] result in
 //            switch result {
 //            case .success:
