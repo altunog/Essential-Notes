@@ -90,6 +90,7 @@
 		6AC600612B53FC010029FF6D /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC600602B53FC010029FF6D /* Feed.xcassets */; };
 		6AC810B72C27386400F2A6EF /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AC810B52C27386400F2A6EF /* Shared.strings */; };
 		6AC810B92C273B4300F2A6EF /* SharedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC810B82C273B4300F2A6EF /* SharedLocalizationTests.swift */; };
+		6AC810BD2C2752DE00F2A6EF /* SharedLocalizationTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC810BC2C2752DE00F2A6EF /* SharedLocalizationTestHelpers.swift */; };
 		6AF06C9A2B41B4210034FA73 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */; };
 		6AF7B46C2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
@@ -216,6 +217,7 @@
 		6AC810B82C273B4300F2A6EF /* SharedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalizationTests.swift; sourceTree = "<group>"; };
 		6AC810BA2C273CA400F2A6EF /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Shared.strings; sourceTree = "<group>"; };
 		6AC810BB2C273CA500F2A6EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Shared.strings"; sourceTree = "<group>"; };
+		6AC810BC2C2752DE00F2A6EF /* SharedLocalizationTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalizationTestHelpers.swift; sourceTree = "<group>"; };
 		6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -455,6 +457,7 @@
 			children = (
 				6A56A9762AF7B0B8002321AB /* XCTestCase+MemoryLeakTracking.swift */,
 				6AB62DAB2B0A1D9B00E39B53 /* SharedTestHelpers.swift */,
+				6AC810BC2C2752DE00F2A6EF /* SharedLocalizationTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 				6A74FEBA2B80B5190086CA27 /* URLProtocolStub.swift in Sources */,
 				6AC810B92C273B4300F2A6EF /* SharedLocalizationTests.swift in Sources */,
 				6A116A922B00DC5F00112095 /* CacheFeedUseCase.swift in Sources */,
+				6AC810BD2C2752DE00F2A6EF /* SharedLocalizationTestHelpers.swift in Sources */,
 				6A8321EC2B08E53C00E5E3D3 /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				6ABFD7E52B13CEE900A40C61 /* FeedStoreSpecs.swift in Sources */,
 				6A56A9772AF7B0B8002321AB /* XCTestCase+MemoryLeakTracking.swift in Sources */,
