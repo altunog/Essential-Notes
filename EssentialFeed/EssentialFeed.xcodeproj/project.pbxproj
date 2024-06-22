@@ -88,6 +88,8 @@
 		6ABFD7E72B13CFDA00A40C61 /* XCTest+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABFD7E62B13CFDA00A40C61 /* XCTest+FeedStoreSpecs.swift */; };
 		6AC6005F2B53FB090029FF6D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC6005E2B53FB090029FF6D /* Feed.storyboard */; };
 		6AC600612B53FC010029FF6D /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC600602B53FC010029FF6D /* Feed.xcassets */; };
+		6AC810B72C27386400F2A6EF /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AC810B52C27386400F2A6EF /* Shared.strings */; };
+		6AC810B92C273B4300F2A6EF /* SharedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC810B82C273B4300F2A6EF /* SharedLocalizationTests.swift */; };
 		6AF06C9A2B41B4210034FA73 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */; };
 		6AF7B46C2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
@@ -210,6 +212,10 @@
 		6ABFD7E62B13CFDA00A40C61 /* XCTest+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		6AC6005E2B53FB090029FF6D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		6AC600602B53FC010029FF6D /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
+		6AC810B62C27386400F2A6EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Shared.strings; sourceTree = "<group>"; };
+		6AC810B82C273B4300F2A6EF /* SharedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalizationTests.swift; sourceTree = "<group>"; };
+		6AC810BA2C273CA400F2A6EF /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Shared.strings; sourceTree = "<group>"; };
+		6AC810BB2C273CA500F2A6EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Shared.strings"; sourceTree = "<group>"; };
 		6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -467,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				6A6247BC2C27101B000253ED /* LoadResourcePresenterTests.swift */,
+				6AC810B82C273B4300F2A6EF /* SharedLocalizationTests.swift */,
 			);
 			path = "Shared Presentation";
 			sourceTree = "<group>";
@@ -475,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				6A6247BF2C271480000253ED /* LoadResourcePresenter.swift */,
+				6AC810B52C27386400F2A6EF /* Shared.strings */,
 			);
 			path = "Shared Presentation";
 			sourceTree = "<group>";
@@ -851,6 +859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A3265A62B5D69F400266717 /* Feed.strings in Resources */,
+				6AC810B72C27386400F2A6EF /* Shared.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,6 +977,7 @@
 				6A8321EF2B08E65F00E5E3D3 /* FeedStoreSpy.swift in Sources */,
 				6AB62DAC2B0A1D9B00E39B53 /* SharedTestHelpers.swift in Sources */,
 				6A74FEBA2B80B5190086CA27 /* URLProtocolStub.swift in Sources */,
+				6AC810B92C273B4300F2A6EF /* SharedLocalizationTests.swift in Sources */,
 				6A116A922B00DC5F00112095 /* CacheFeedUseCase.swift in Sources */,
 				6A8321EC2B08E53C00E5E3D3 /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				6ABFD7E52B13CEE900A40C61 /* FeedStoreSpecs.swift in Sources */,
@@ -1029,6 +1039,16 @@
 				6A3265A22B5D52CE00266717 /* pt-BR */,
 			);
 			name = Feed.strings;
+			sourceTree = "<group>";
+		};
+		6AC810B52C27386400F2A6EF /* Shared.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AC810B62C27386400F2A6EF /* en */,
+				6AC810BA2C273CA400F2A6EF /* el */,
+				6AC810BB2C273CA500F2A6EF /* pt-BR */,
+			);
+			name = Shared.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
