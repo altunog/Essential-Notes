@@ -120,7 +120,10 @@ private extension FeedViewController {
     
     func display(_ stubs: [ImageStub]) {
         let cells: [FeedImageCellController] = stubs.map { stub in
-            let cellController = FeedImageCellController(delegate: stub)
+            let dummyViewModel = FeedImageViewModel<UIImage>(description: nil, location: nil, image: nil, isLoading: false, shouldRetry: false)
+            let cellController = FeedImageCellController(
+                viewModel: dummyViewModel,
+                delegate: stub)
             stub.controller = cellController
             return cellController
         }
