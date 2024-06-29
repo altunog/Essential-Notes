@@ -1,5 +1,5 @@
 //
-//  FeedViewController+RefreshControl.swift
+//  ListViewController+RefreshControl.swift
 //  EssentialFeediOSTests
 //
 //  Created by Oğuz Kaan Altun on 2.05.2024.
@@ -22,7 +22,7 @@ final class FakeRefreshControl: UIRefreshControl {
     }
 }
 
-extension FeedViewController {
+extension ListViewController {
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
