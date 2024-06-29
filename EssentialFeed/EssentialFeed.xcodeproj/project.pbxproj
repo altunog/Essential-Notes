@@ -112,6 +112,7 @@
 		6AEA4D3C2C306FCE00A11E0C /* IMAGE_COMMENTS_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEA4D392C306FCE00A11E0C /* IMAGE_COMMENTS_dark.png */; };
 		6AEA4D3D2C306FCE00A11E0C /* IMAGE_COMMENTS_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEA4D3A2C306FCE00A11E0C /* IMAGE_COMMENTS_light.png */; };
 		6AEA4D402C30712F00A11E0C /* ImageCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA4D3F2C30712F00A11E0C /* ImageCommentCell.swift */; };
+		6AEA4D422C30A3E600A11E0C /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA4D412C30A3E600A11E0C /* CellController.swift */; };
 		6AF06C9A2B41B4210034FA73 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */; };
 		6AF7B46C2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
@@ -262,6 +263,7 @@
 		6AEA4D392C306FCE00A11E0C /* IMAGE_COMMENTS_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMAGE_COMMENTS_dark.png; sourceTree = "<group>"; };
 		6AEA4D3A2C306FCE00A11E0C /* IMAGE_COMMENTS_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMAGE_COMMENTS_light.png; sourceTree = "<group>"; };
 		6AEA4D3F2C30712F00A11E0C /* ImageCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentCell.swift; sourceTree = "<group>"; };
+		6AEA4D412C30A3E600A11E0C /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
 		6AF06C992B41B4210034FA73 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		6AF7B46B2AF6957E00F8FA61 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -723,6 +725,7 @@
 		6AEA4D122C30332700A11E0C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6AEA4D412C30A3E600A11E0C /* CellController.swift */,
 				6A2409F32B4093AA00CA36B8 /* ListViewController.swift */,
 			);
 			path = Controllers;
@@ -1094,6 +1097,7 @@
 				6A1C51D82BE2756F00AC635F /* UITableView+HeaderSizing.swift in Sources */,
 				6AF06C9A2B41B4210034FA73 /* UIView+Shimmering.swift in Sources */,
 				6A7019EB2B5BE4DF0067C399 /* ErrorView.swift in Sources */,
+				6AEA4D422C30A3E600A11E0C /* CellController.swift in Sources */,
 				6A7019F02B5D0E330067C399 /* UIRefreshControl+Helpers.swift in Sources */,
 				6A2409F42B4093AA00CA36B8 /* ListViewController.swift in Sources */,
 				6A5CFCEB2B541283004FC3D7 /* UITableView+Dequeueing.swift in Sources */,
