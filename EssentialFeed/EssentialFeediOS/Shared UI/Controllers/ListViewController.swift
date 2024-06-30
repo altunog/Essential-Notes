@@ -23,7 +23,8 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
         onViewIsAppearing = { vc in
@@ -90,7 +91,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public func display(_ viewModel: ResourceErrorViewModel) {
         errorView.message = viewModel.message
     }
-        
+    
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let dl = cellController(at: indexPath)?.delegate
         dl?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
