@@ -54,15 +54,27 @@ class FeedUIIntegrationTests: XCTestCase {
     func test_loadMoreActions_requestMoreFromLoader() {
         let (sut, loader) = makeSUT()
         sut.simulateAppearance()
+        loader.completeFeedLoading(with: [makeImage(), makeImage(), makeImage()])
         
-        loader.completeFeedLoading()
-//        XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no request until load more action")
+        XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no request until load more action")
         
         sut.simulateLoadMoreFeedAction()
         XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected load more request")
         
         sut.simulateLoadMoreFeedAction()
         XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected no request while loading more")
+        
+        loader.completeLoadMore(lastPage: false, at: 0)
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 2, "Expected request after load more completed with more pages")
+        
+        loader.completeLoadMoreWithError(at: 1)
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 3, "Expected request after load more failure")
+        
+        loader.completeLoadMore(lastPage: true, at: 2)
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 3, "Expected request after loading all pages")
     }
     
     func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
