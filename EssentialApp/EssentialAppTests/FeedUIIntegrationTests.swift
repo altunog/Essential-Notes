@@ -54,7 +54,7 @@ class FeedUIIntegrationTests: XCTestCase {
     func test_loadMoreActions_requestMoreFromLoader() {
         let (sut, loader) = makeSUT()
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [makeImage(), makeImage(), makeImage()])
+        loader.completeFeedLoading(with: uniqueFeed())
         
         XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no request until load more action")
         
@@ -98,6 +98,28 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateAppearance()
         XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator except the first time view appears")
+    }
+    
+    func test_loadingMoreIndicator_isVisibleWhileLoadingMore() {
+        let (sut, loader) = makeSUT()
+        
+        sut.simulateAppearance()
+        XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once view is appeared")
+        
+        loader.completeFeedLoading(with: uniqueFeed(), at: 0)
+        XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once loading completes successfully")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertTrue(sut.isShowingLoadMoreFeedIndicator, "Expected loading indicator on load more action")
+        
+        loader.completeLoadMore(with: uniqueFeed(), at: 0)
+        XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once loading completes successfully")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertTrue(sut.isShowingLoadMoreFeedIndicator, "Expected loading indicator on second load more action")
+        
+        loader.completeLoadMoreWithError(at: 1)
+        XCTAssertFalse(sut.isShowingLoadMoreFeedIndicator, "Expected no loading indicator once loading completes with error")
     }
     
     func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
