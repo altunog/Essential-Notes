@@ -15,7 +15,7 @@ public final class LocalFeedImageDataLoader {
         self.store = store
     }
 }
- 
+
 extension LocalFeedImageDataLoader: FeedImageDataCache {
     public typealias SaveResult = FeedImageDataCache.Result
     
@@ -24,13 +24,12 @@ extension LocalFeedImageDataLoader: FeedImageDataCache {
     }
     
     public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
-        
         completion(SaveResult {
             try store.insert(data, for: url)
         }.mapError { _ in SaveError.failed })
     }
 }
-    
+
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
     public typealias LoadResult = FeedImageDataLoader.Result
     
@@ -61,16 +60,18 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
     
     public func loadImageData(from url: URL, completion: @escaping (LoadResult) -> Void) -> FeedImageDataLoaderTask {
         let task = LoadImageDataTask(completion)
-        store.retrieve(dataForURL: url) { [weak self] result in
-            guard self != nil else { return }
-            
-            task.complete(with: result
-                .mapError { _ in LoadError.failed }
-                .flatMap { data in
-                    guard let data, data.count > 0 else { return .failure(LoadError.notFound) }
-                    return .success(data)
-                })
-        }
+        
+        task.complete(
+            with: Swift.Result {
+                try store.retrieve(dataForURL: url)
+            }
+            .mapError { _ in LoadError.failed }
+            .flatMap { data in
+                guard let data, data.count > 0 else {
+                    return .failure(LoadError.notFound)
+                }
+                return .success(data)
+            })
         return task
     }
 }
