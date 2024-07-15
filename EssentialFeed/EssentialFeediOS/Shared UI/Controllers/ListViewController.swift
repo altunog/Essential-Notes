@@ -12,12 +12,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     private(set) public var errorView = ErrorView()
     
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
-        .init(tableView: tableView) { tableView, indexPath, controller in
-            controller.dataSource.tableView(tableView, cellForRowAt: indexPath)
+        .init(tableView: tableView) { (tableView, index, controller) in
+            controller.dataSource.tableView(tableView, cellForRowAt: index)
         }
     }()
     
-    private var onViewIsAppearing: ((ListViewController) -> Void)?
+    private var onViewDidAppear: ((ListViewController) -> Void)?
     
     public var onRefresh: (() -> Void)?
     
@@ -25,20 +25,21 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         super.viewDidLoad()
         
         configureTableView()
-        onViewIsAppearing = { vc in
+        configureTraitCollectionObservers()
+        
+        onViewDidAppear = { vc in
+            vc.onViewDidAppear = nil
             vc.refresh()
-            vc.onViewIsAppearing = nil
         }
     }
     
-    public override func viewIsAppearing(_ animated: Bool) {
-        super.viewIsAppearing(animated)
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        onViewIsAppearing?(self)
+        onViewDidAppear?(self)
     }
-    
+
     private func configureTableView() {
-        
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         tableView.tableHeaderView = errorView.makeContainer()
@@ -50,16 +51,22 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         }
     }
     
+    private func configureTraitCollectionObservers() {
+        if #available(iOS 17.0, *) {
+            registerForTraitChanges(
+                [UITraitPreferredContentSizeCategory.self]
+            ) { (self: Self, previous: UITraitCollection) in
+                self.tableView.reloadData()
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         tableView.sizeTableHeaderToFit()
-    }
-    
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
-            tableView.reloadData()
-        }
     }
     
     @IBAction private func refresh() {
@@ -72,6 +79,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
             snapshot.appendSections([section])
             snapshot.appendItems(cellControllers, toSection: section)
         }
+        
         dataSource.apply(snapshot)
     }
     
