@@ -119,7 +119,7 @@ private extension FeedCache {
 }
 
 extension Publisher {
-    func dispatchOnMainQueue() -> AnyPublisher<Output, Failure> {
+    func dispatchOnMainThread() -> AnyPublisher<Output, Failure> {
         receive(on: DispatchQueue.immediateWhenOnMainQueueScheduler).eraseToAnyPublisher()
     }
 }
