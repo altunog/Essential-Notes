@@ -474,7 +474,7 @@ class FeedUIIntegrationTests: XCTestCase {
         
         XCTAssertEqual(view0?.renderedImage, nil, "Expected no rendered image when view becomes visible while still preloading image")
         XCTAssertEqual(view0?.isShowingRetryAction, false, "Expected no retry action when view becomes visible while still preloading image")
-//        XCTAssertEqual(view0?.isShowingImageLoadingIndicator, true, "Expected loading indicator when view becomes visible while still preloading image")
+        XCTAssertEqual(view0?.isShowingImageLoadingIndicator, true, "Expected loading indicator when view becomes visible while still preloading image")
         
         let imageData = UIImage.make(withColor: .red).pngData()!
         loader.completeImageLoading(with: imageData, at: 0)
@@ -494,8 +494,8 @@ class FeedUIIntegrationTests: XCTestCase {
         
         XCTAssertEqual(view0?.renderedImage, nil, "Expected no rendered image when view becomes visible again")
         XCTAssertEqual(view0?.isShowingRetryAction, false, "Expected no retry action when view becomes visible again")
-//        XCTAssertEqual(view0?.isShowingImageLoadingIndicator, true, "Expected loading indicator when view becomes visible again")
-//        
+        XCTAssertEqual(view0?.isShowingImageLoadingIndicator, true, "Expected loading indicator when view becomes visible again")
+        
 //        let imageData = UIImage.make(withColor: .red).pngData()!
 //        loader.completeImageLoading(with: imageData, at: 1)
 //
