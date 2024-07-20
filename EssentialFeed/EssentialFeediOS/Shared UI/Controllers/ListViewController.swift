@@ -52,14 +52,10 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     }
     
     private func configureTraitCollectionObservers() {
-        if #available(iOS 17.0, *) {
-            registerForTraitChanges(
-                [UITraitPreferredContentSizeCategory.self]
-            ) { (self: Self, previous: UITraitCollection) in
-                self.tableView.reloadData()
-            }
-        } else {
-            // Fallback on earlier versions
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
         }
     }
     
