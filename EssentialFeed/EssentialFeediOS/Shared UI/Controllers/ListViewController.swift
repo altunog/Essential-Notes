@@ -80,7 +80,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
             snapshot.appendItems(cellControllers, toSection: section)
         }
         
-        dataSource.apply(snapshot)
+        dataSource.applySnapshotUsingReloadData(snapshot)
     }
     
     public func display(_ viewModel: ResourceLoadingViewModel) {
